@@ -1,4 +1,4 @@
-$(".add_vote").hide()
-$('#choice_a_<%=@question.id%>').html('<%= @question.choice_a.percent %>')
-$('#choice_b_<%=@question.id%>').html('<%= @question.choice_b.percent %>')
+$(".add_vote_<%=@question.id%>").hide()
+$('#choice_a_<%=@question.id%>').html('<%= @question.choice_a.percent %>' + " voted for this choice")
+$('#choice_b_<%=@question.id%>').html('<%= @question.choice_b.percent %>' + " voted for this choice")
 $(".votes").show()
