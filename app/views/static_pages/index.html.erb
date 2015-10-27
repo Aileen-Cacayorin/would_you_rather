@@ -3,7 +3,15 @@
 <%= render "questions/new" %>
 
 <% if @questions.any? %>
-<p> There will be questions here</p>
+<ul>
+  <% @questions.each do |question| %>
+  <h3>Would you rather . . . ?</h3>
+
+        <p> <%= question.choice_a.description %> | <%= button_to "Vote", choice_votes_path(question.choice_a), :method => :post, class: "add_vote",  remote: true %> | <span class="votes"><%= question.choice_a.percent %>% </span>
+        <p><%= question.choice_b.description %> | <%= button_to "Vote", choice_votes_path(question.choice_b), :method => :post, class: "add_vote",  remote: true %>  | <span class="votes"><%= question.choice_b.percent %>%</span></span>
+
+  <% end %>
+</ul>
 
 <% else %>
 <p>No questions yet</p>

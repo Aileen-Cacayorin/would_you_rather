@@ -1,0 +1,16 @@
+<h3>Would you rather . . . ?</h3>
+
+<%= link_to "Add a choice", new_question_choice_path(@question), id: "new_link", remote: true %>
+
+<h4>Choices</h4>
+<div class="container" >
+  <ul id="choices">
+  <% if @choices.any? %>
+
+    <% @choices.each do |choice| %>
+      <li> <%= choice.description %> </li>
+    <% end %>
+
+  <% end %>
+</ul>
+</div>
