@@ -1,0 +1,10 @@
+<h1>This is the home page</h1>
+
+<%= render "questions/new" %>
+
+<% if @questions.any? %>
+<p> There will be questions here</p>
+
+<% else %>
+<p>No questions yet</p>
+<% end %>
