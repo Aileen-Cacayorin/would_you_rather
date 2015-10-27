@@ -1,2 +1,4 @@
 $(".add_vote").hide()
+$('#choice_a_<%=@question.id%>').html('<%= @question.choice_a.percent %>')
+$('#choice_b_<%=@question.id%>').html('<%= @question.choice_b.percent %>')
 $(".votes").show()

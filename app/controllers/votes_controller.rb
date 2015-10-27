@@ -7,6 +7,7 @@ class VotesController < ApplicationController
 
   def create
     @choice = Choice.find(params[:choice_id])
+    @question = @choice.question
     @vote = Vote.create
     @vote.choice = @choice
     @vote.save

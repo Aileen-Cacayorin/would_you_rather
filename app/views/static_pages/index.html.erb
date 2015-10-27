@@ -7,9 +7,9 @@
   <% @questions.each do |question| %>
   <h3>Would you rather . . . ?</h3>
 
-        <p> <%= question.choice_a.description %>  <%= button_to "Vote", choice_votes_path(question.choice_a), :method => :post, class: "add_vote",  remote: true %> <span class="votes"> <%= question.choice_a.percent %>% voted for this</span>
+        <p> <%= question.choice_a.description %>  <%= button_to "Vote", choice_votes_path(question.choice_a), :method => :post, class: "add_vote",  remote: true %> <span class="votes" id="choice_a_<%=question.id%>">  </span>
         OR
-        <p><%= question.choice_b.description %>  <%= button_to "Vote", choice_votes_path(question.choice_b), :method => :post, class: "add_vote",  remote: true %>  <span class="votes"> <%= question.choice_b.percent %>% voted for this</span></span>
+        <p><%= question.choice_b.description %>  <%= button_to "Vote", choice_votes_path(question.choice_b), :method => :post, class: "add_vote",  remote: true %>  <span class="votes" id="choice_b_<%=question.id%>"> </span>
 
   <% end %>
 </ul>
