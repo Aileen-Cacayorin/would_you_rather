@@ -1,0 +1,11 @@
+<% if @choice == @question.choice_a %>
+  $(".edit_choice>").hide()
+  $("#edit_choice_a_<%=@question.id%>").show()
+  $("#choice_a_description_<%=@question.id%>").html("<%= @question.choice_a.description %>")
+<% end %>
+
+<% if @choice == @question.choice_b %>
+  $(".edit_choice>").hide()
+  $("#edit_choice_b_<%=@question.id%>").show()
+  $("#choice_b_description_<%=@question.id%>").html("<%= @question.choice_b.description %>")
+<% end %>

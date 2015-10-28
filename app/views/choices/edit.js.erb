@@ -1,0 +1,7 @@
+<% if @choice == @question.choice_a %>
+  $("#edit_choice_a_<%=@question.id%>").hide().after('<%= j render('form')%>');
+<% end %>
+
+<% if @choice == @question.choice_b %>
+  $("#edit_choice_b_<%=@question.id%>").hide().after('<%= j render('form')%>');
+<% end %>
