@@ -1,3 +1,9 @@
-$('#new_choice').hide();
-$('#new_link').show();
-$('#choices').append('<li> <%= @choice.description %></li>')
+
+   <% if @question.choices.count < 2 %>
+    $('#new_choice').hide();
+    $('#new_link').show();
+    $('#choices').append('<li> <%= @choice.description %></li>')
+   <% else %>
+    $('#new_choice').hide();
+    $('#choices').append('<li> <%= @choice.description %></li>')
+    <% end %>
