@@ -14,4 +14,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @choices = @question.choices
   end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    respond_to do |format|
+    format.html { redirect_to :back }
+    format.js
+    end
+  end
 end

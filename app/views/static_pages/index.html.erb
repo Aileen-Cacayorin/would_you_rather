@@ -5,16 +5,20 @@
 <% if @questions.any? %>
 <ul>
   <% @questions.each do |question| %>
-  <h3>Would you rather . . . ?</h3>
-    <% if question.choices.any? %>
-        <p> <span id= "choice_a_description_<%=question.id%>"><%= question.choice_a.description %></span> |
-        <%= link_to "Edit", edit_question_choice_path(question, question.choice_a), id: "edit_choice_a_#{question.id}", remote: true %>
-        <%= button_to "Vote", choice_votes_path(question.choice_a), :method => :post, class: "add_vote_#{question.id}",  remote: true %> <span class="votes" id="choice_a_<%=question.id%>">  </span>
-        <p>OR</p>
-        <p><span id= "choice_b_description_<%=question.id%>"><%= question.choice_b.description %></span> |
-        <%= link_to "Edit", edit_question_choice_path(question, question.choice_b), id: "edit_choice_b_#{question.id}", remote: true %>
-        <%= button_to "Vote", choice_votes_path(question.choice_b), :method => :post, class: "add_vote_#{question.id}",  remote: true %>  <span class="votes" id="choice_b_<%=question.id%>"> </span>
-    <% end %>
+  <div id="question_<%=question.id%>">
+    <hr>
+     <%= button_to "Delete", question_path(question), method: :delete, data: {confirm: "Are you sure?"},    remote: true %>
+    <h3>Would you rather . . . ?</h3>
+      <% if question.choices.any? %>
+          <p> <span id= "choice_a_description_<%=question.id%>"><%= question.choice_a.description %></span> |
+          <%= link_to "Edit", edit_question_choice_path(question, question.choice_a), id: "edit_choice_a_#{question.id}", remote: true %>
+          <%= button_to "Vote", choice_votes_path(question.choice_a), :method => :post, class: "add_vote_#{question.id}",  remote: true %> <span class="votes" id="choice_a_<%=question.id%>">  </span>
+          <p>OR</p>
+          <p><span id= "choice_b_description_<%=question.id%>"><%= question.choice_b.description %></span> |
+          <%= link_to "Edit", edit_question_choice_path(question, question.choice_b), id: "edit_choice_b_#{question.id}", remote: true %>
+          <%= button_to "Vote", choice_votes_path(question.choice_b), :method => :post, class: "add_vote_#{question.id}",  remote: true %>  <span class="votes" id="choice_b_<%=question.id%>"> </span>
+      <% end %>
+  </div>
   <% end %>
 </ul>
 
